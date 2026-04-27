@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Xin Zhang's Homepage</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="main-body">
+    <!-- 以下为增加部分 -->
+    <main>
+        <p>欢迎来到我的网站！</p>
+        <button id="btn-open-game" class="special-btn">🎮 玩个塔防小游戏</button>
+    </main>
+
+    <div id="game-modal-overlay" style="display: none;">
+        <div id="game-container">
+            <button id="btn-close-game">✖ 关闭游戏</button>
+
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+            <div id="ui-layer">
+                <div id="top-bar" class="game-ui" style="display: none;">
+                    <span>金币: <span id="gold-display">150</span></span>
+                    <span>生命: <span id="lives-display">5</span></span>
+                    <span>波次: <span id="wave-display">1</span></span>
+                </div>
+
+                <div id="start-menu" class="panel active">
+                    <h1>守卫基地 - 战前简报</h1>
+                    <div id="game-rules">
+                        <p><strong>🎯 游戏目标：</strong> 阻止敌人沿着道路进入基地的终点！如果有 <strong>5</strong> 个敌人漏网，防线就会崩溃，游戏失败。</p>
+                        
+                        <p><strong>🛠️ 基础操作：</strong></p>
+                        <ul>
+                            <li><strong>建造：</strong> 点击底部菜单选择防御塔，然后在网格<strong>空地</strong>上点击即可建造。</li>
+                            <li><strong>升级与出售：</strong> 点击已经建好的塔，会弹出操作面板。你可以花费金币<strong>升级</strong>它的威力和射程，或者<strong>半价退款</strong>将它拆除，腾出位置！</li>
+                        </ul>
+
+                        <p><strong>🛡️ 防御塔图鉴：</strong></p>
+                        <ul>
+                            <li>🟦 <strong>基础塔 (50金):</strong> 性能均衡，适合前期开局过度。</li>
+                            <li>🟪 <strong>狙击塔 (100金):</strong> 造价高、攻速极慢，但拥有超大范围和恐怖的单体伤害，是打 Boss 和坦克怪的利器。</li>
+                            <li>🧊 <strong>冰冻塔 (80金):</strong> 几乎没有伤害，但能让范围内的敌人减速 50%，<strong>强烈建议建在火力最猛的拐角处！</strong></li>
+                        </ul>
+
+                        <p><strong>💰 经济提示：</strong> 开局拥有 150金。击杀敌人会获得金币，通关一波会获得 100金 奖励。合理规划你的金币是获胜的关键。</p>
+                        <p>🔧 操作提示：将鼠标移动至塔上方，会出现攻击范围；若不想升级/拆塔，点击空白处即可</p>
+                    </div>
+                    <button id="btn-start">接受任务并开始</button>
+                </div>
+
+                <div id="game-over-menu" class="panel">
+                    <h1 id="game-over-title">游戏结束</h1>
+                    <p>存活波次: <span id="final-wave"></span></p>
+                    <div class="panel-buttons" style="justify-content: center; margin-top: 20px;">
+                        <button id="btn-restart">重新开始</button>
+                        <button id="btn-back-to-menu" style="background-color: #95a5a6;">返回主界面</button>
+                    </div>
+                </div>
+
+                <div id="turret-panel" class="action-panel">
+                    <h3 id="tp-title">防御塔</h3>
+                    <p>等级: <span id="tp-level">1</span></p>
+                    <div class="panel-buttons">
+                        <button id="btn-upgrade">升级 (<span id="tp-up-cost">50</span>g)</button>
+                        <button id="btn-sell" class="sell-btn">出售 (<span id="tp-sell-price">25</span>g)</button>
+                    </div>
+                </div>
+
+                <div id="build-menu" class="game-ui" style="display: none;">
+                    <button id="build-basic" class="build-btn active">基础塔 (50g)</button>
+                    <button id="build-sniper" class="build-btn">狙击塔 (100g)</button>
+                    <button id="build-frost" class="build-btn">冰冻塔 (80g)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+    <!-- 以上为增加部分 -->
+
+    <div id="app" class="app-container">
+        
+        <div class="navbar-box">
+            <span class="nav-brand">Xin Zhang</span>
+            <div class="nav-items">
+                <span class="nav-text-item">Research</span>
+                <span class="nav-text-item">Experience</span>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="profile-row">
+                <div class="left-col">
+                    <img src="images/me.jpg" alt="avatar" class="avatar-circle">
+                    <div class="contact-list">
+                      <a href="mailto:3220101171@zju.edu.cn" class="contact-link">
+                        <i class="icon-envelope"></i> 3220101171@zju.edu.cn
+                      </a>
+                      <a href="https://github.com/kiiooki" target="_blank" class="contact-link">
+                        <i class="icon-github"></i> GitHub
+                      </a>
+                    </div>
+                </div>
+                
+                <div class="right-col">
+                    <h1 class="name-h1">张欣 （Xin Zhang）</h1>
+                    <p class="dept-p">
+                        <a href="http://www.som.zju.edu.cn/" class="dept-link">浙江大学管理学院</a> · 本科生 | 开发者 & 研究者
+                    </p>
+                    
+                    <h2 class="title-h2">INTRODUCTION：</h2>
+                    <p class="text-p">我致力于探索城市土地利用与可持续性发展中的复杂挑战。在科研中，我通过机器学习、建模预测与数据挖掘技术寻求解决之道。</p>
+                    <p class="text-p">在解决问题的过程中，我开始探究和学习计算机科学本身。目前，我正系统性地构建计算机科学知识体系，构建完整的开发者能力栈。</p>
+                    <p class="text-p">计算机基础：计算机组成、数据结构、算法、数据库</p>
+                    <p class="text-p">编程语言：Python / C++ / Java</p>
+                </div>
+            </div>
+
+
+<!-- 阅读书单区域 - 按年份分组 -->
+            <div class="section-container">
+                <h2 class="title-h2">Reading List</h2>
+
+                <!-- 2026 年 -->
+                <div class="year-group">
+                    <div class="year-header" data-year="2026">
+                        <span class="expand-icon">▶</span> 2026
+                    </div>
+                    <div class="year-books" id="year-2026">
+                        <div class="book-card">
+                            <img src="images/books/book3.jpg" alt="book" class="book-img">
+                            <div class="book-info">
+                                <p class="b-name">书名：《数据通信与计算机网络》</p>
+                                <p class="b-author">作者：邢彦辰</p>
+                                <p class="b-date">日期：2026-3</p>
+                                <a href="https://item.jd.com/10186638233478.html?spmTag=YTAyMTkuYjAwMjM1Ni5jMDAwMDQ2ODkuc2VhcmNoX2NvbmZpcm0lMkNhMDI0MC5iMDAyNDkzLmMwMDAwNDAyNy4xJTIzc2t1X2NhcmQ" class="jd-a" target="_blank">京东购买链接</a>
+                            </div>
+                        </div>
+                        <div class="book-card">
+                            <img src="images/books/book4.jpg" alt="book" class="book-img">
+                            <div class="book-info">
+                                <p class="b-name">书名：《C++面向对象程序设计》</p>
+                                <p class="b-author">作者：Behrouz A Forouzan</p>
+                                <p class="b-date">日期：2026-3</p>
+                                <a href="https://item.jd.com/12909152.html?spmTag=YTAyMTkuYjAwMjM1Ni5jMDAwMDQ2ODkuc2VhcmNoX2NvbmZpcm0lMkNhMDI0MC5iMDAyNDkzLmMwMDAwNDAyNy40JTIzc2t1X2NhcmQ" class="jd-a" target="_blank">京东购买链接</a>
+                            </div>
+                        </div>
+                        <div class="book-card">
+                            <img src="images/books/book9.jpg" alt="book" class="book-img">
+                            <div class="book-info">
+                                <p class="b-name">书名：《雅思词汇真经》</p>
+                                <p class="b-author">作者：刘洪波</p>
+                                <p class="b-date">日期：2026-2</p>
+                                <a href="https://item.jd.com/10174720090423.html?spmTag=YTAyMTkuYjAwMjM1Ni5jMDAwMDQ2ODkuc2VhcmNoX2NvbmZpcm0lMkNhMDI0MC5iMDAyNDkzLmMwMDAwNDAyNy4xJTIzc2t1X2NhcmQ" class="jd-a" target="_blank">京东购买链接</a>
+                            </div>
+                        </div>
+                        <div class="book-card">
+                            <img src="images/books/book10.jpg" alt="book" class="book-img">
+                            <div class="book-info">
+                                <p class="b-name">书名：《9988雅思听力真题答案词汇》</p>
+                                <p class="b-author">作者：王勇</p>
+                                <p class="b-date">日期：2026-2</p>
+                                <a href="https://item.jd.com/10140358390545.html?spmTag=YTAyMTkuYjAwMjM1Ni5jMDAwMDQ2ODkuc2VhcmNoX2NvbmZpcm0lMkNhMDI0MC5iMDAyNDkzLmMwMDAwNDAyNy4xJTIzc2t1X2NhcmQ" class="jd-a" target="_blank">京东购买链接</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2025 年 -->
+                <div class="year-group">
+                    <div class="year-header" data-year="2025">
+                        <span class="expand-icon">▶</span> 2025
+                    </div>
+                    <div class="year-books" id="year-2025">
+                        <div class="book-card">
+                            <img src="images/books/book1.jpg" alt="book" class="book-img">
+                            <div class="book-info">
+                                <p class="b-name">书名：《计算机组成原理》</p>
+                                <p class="b-author">作者：Alan Clements</p>
+                                <p class="b-date">日期：2025-9</p>
+                                <a href="https://item.jd.com/12157932.html?spmTag=YTAyNDAuYjAwMjQ5My5jMDAwMDQwMjcuMSUyM3NrdV9jYXJk" class="jd-a" target="_blank">京东购买链接</a>
+                            </div>
+                        </div>
+                        <div class="book-card">
+                            <img src="images/books/book2.jpg" alt="book" class="book-img">
+                            <div class="book-info">
+                                <p class="b-name">书名：《算法导论》</p>
+                                <p class="b-author">作者：Cormen Thomas H.</p>
+                                <p class="b-date">日期：2025-9</p>
+                                <a href="https://item.jd.com/10208598895923.html?spmTag=YTAyMTkuYjAwMjM1Ni5jMDAwMDQ2ODkuc2VhcmNoX2NvbmZpcm0lMkNhMDI0MC5iMDAyNDkzLmMwMDAwNDAyNy4xNyUyM3NrdV9jYXJk" class="jd-a" target="_blank">京东购买链接</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2023 年 -->
+                <div class="year-group">
+                    <div class="year-header" data-year="2023">
+                        <span class="expand-icon">▶</span> 2023
+                    </div>
+                    <div class="year-books" id="year-2023">
+                        <div class="book-card">
+                            <img src="images/books/book5.jpg" alt="book" class="book-img">
+                            <div class="book-info">
+                                <p class="b-name">书名：《德米安》</p>
+                                <p class="b-author">作者：黑塞</p>
+                                <p class="b-date">日期：2023-2</p>
+                                <a href="https://item.jd.com/10092392700058.html?spmTag=YTAyNDAuYjAwMjQ5My5jMDAwMDQwMjcuMyUyM3NrdV9jYXJk" class="jd-a" target="_blank">京东购买链接</a>
+                            </div>
+                        </div>
+                        <div class="book-card">
+                            <img src="images/books/book6.jpg" alt="book" class="book-img">
+                            <div class="book-info">
+                                <p class="b-name">书名：《在轮下》</p>
+                                <p class="b-author">作者：黑塞</p>
+                                <p class="b-date">日期：2023-4</p>
+                                <a href="https://item.jd.com/10092392700065.html?spmTag=YTAyNDAuYjAwMjQ5My5jMDAwMDQwMjcuMjYlMjNza3VfY2FyZA" class="jd-a" target="_blank">京东购买链接</a>
+                            </div>
+                        </div>
+                        <div class="book-card">
+                            <img src="images/books/book7.jpg" alt="book" class="book-img">
+                            <div class="book-info">
+                                <p class="b-name">书名：《撒哈拉的故事》</p>
+                                <p class="b-author">作者：三毛</p>
+                                <p class="b-date">日期：2023-9</p>
+                                <a href="https://item.jd.com/10169485997037.html?spmTag=YTAyMTkuYjAwMjM1Ni5jMDAwMDQ2ODkuc2VhcmNoX2NvbmZpcm0lMkNhMDI0MC5iMDAyNDkzLmMwMDAwNDAyNy4xMCUyM3NrdV9jYXJk" class="jd-a" target="_blank">京东购买链接</a>
+                            </div>
+                        </div>
+                        <div class="book-card">
+                            <img src="images/books/book8.jpg" alt="book" class="book-img">
+                            <div class="book-info">
+                                <p class="b-name">书名：《雨季不再来》</p>
+                                <p class="b-author">作者：三毛</p>
+                                <p class="b-date">日期：2023-9</p>
+                                <a href="https://item.jd.com/10169563471330.html?spmTag=YTAyMTkuYjAwMjM1Ni5jMDAwMDQ2ODkuc2VhcmNoX2NvbmZpcm0lMkNhMDI0MC5iMDAyNDkzLmMwMDAwNDAyNy4xMCUyM3NrdV9jYXJk&pcdk=6p1YA1z1j6QiRuhyYT2HY82owypFp5wCxV8GcS3OM3do9_YNFH-MOBiDkZxLA5jn.rQ4a.tlbT" class="jd-a" target="_blank">京东购买链接</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="content-section">
+                <h2 class="section-h2">项目：</h2>
+                <h3 class="item-h3">1. 基于 RISC-V 指令集的多周期与流水线 CPU 架构实现</h3>
+                <p class="item-p">· 架构演进：自底向上设计并实现了从单周期到多周期，再到五段流水线的处理器架构。</p>
+                <p class="item-p">· 流水线优化：针对五段流水线架构，设计并实现了完整的冲突处理单元（Hazard Detection Unit），通过数据前推（Data Forwarding）和流水线暂停（Stall）机制有效解决了数据冲突与分支预测冲突。</p>
+                <p class="item-p">· 模块化设计：独立完成运算器（ALU）、控制器（Control Unit）、寄存器堆（Register File）及存储系统的逻辑建模。</p>
+                <p class="item-p">· 验证与仿真：在 Vivado 平台上通过时序仿真验证了指令集的正确性，并对典型基准测试程序进行了硬件性能评估。</p>
+            </div>
+
+            <div class="footer-box">
+                <a href="#" class="top-link">返回顶部 Back to Top ↑</a>
+            </div>
+        </div>
+    </div>
+    <script>
+    // 获取所有年份标题
+    const yearHeaders = document.querySelectorAll('.year-header');
+    
+    yearHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            // 切换展开状态类
+            this.classList.toggle('expanded');
+            
+            // 获取对应的书籍容器
+            const year = this.getAttribute('data-year');
+            const booksContainer = document.getElementById(`year-${year}`);
+            
+            // 切换隐藏类
+            booksContainer.classList.toggle('hidden');
+        });
+    });
+</script>
+</body>
+</html>
