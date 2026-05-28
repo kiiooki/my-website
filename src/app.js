@@ -3,6 +3,7 @@ import { onMounted, ref } from 'vue'
 const SITE_DATA_URL = `${import.meta.env.BASE_URL}site-data.json`
 const GAME_SCRIPT_ID = 'tower-defense-script'
 const GAME_SCRIPT_SRC = `${import.meta.env.BASE_URL}game.js`
+const BASE_URL = import.meta.env.BASE_URL
 
 const fetchJson = async (url) => {
   const response = await fetch(url)
@@ -10,6 +11,40 @@ const fetchJson = async (url) => {
     throw new Error(`Failed to fetch ${url}: ${response.status}`)
   }
   return response.json()
+}
+
+const withBase = (value) => {
+  if (typeof value !== 'string') {
+    return value
+  }
+
+  if (!value.startsWith('/') || value.startsWith('//')) {
+    return value
+  }
+
+  return `${BASE_URL}${value.slice(1)}`
+}
+
+const normalizeSiteData = (input) => {
+  if (Array.isArray(input)) {
+    return input.map(normalizeSiteData)
+  }
+
+  if (!input || typeof input !== 'object') {
+    return input
+  }
+
+  const output = {}
+
+  for (const [key, value] of Object.entries(input)) {
+    if (typeof value === 'string' && ['avatar', 'image', 'href', 'url'].includes(key)) {
+      output[key] = withBase(value)
+    } else {
+      output[key] = normalizeSiteData(value)
+    }
+  }
+
+  return output
 }
 
 const loadGameScript = () => {
@@ -36,7 +71,8 @@ export const useAppData = () => {
 
   onMounted(async () => {
     try {
-      siteData.value = await fetchJson(SITE_DATA_URL)
+      const rawSiteData = await fetchJson(SITE_DATA_URL)
+      siteData.value = normalizeSiteData(rawSiteData)
       await loadGameScript()
     } catch (error) {
       console.error('Initialization failed:', error)
