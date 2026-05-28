@@ -1,8 +1,8 @@
 import { onMounted, ref } from 'vue'
 
-const SITE_DATA_URL = '/site-data.json'
+const SITE_DATA_URL = `${import.meta.env.BASE_URL}site-data.json`
 const GAME_SCRIPT_ID = 'tower-defense-script'
-const GAME_SCRIPT_SRC = '/game.js'
+const GAME_SCRIPT_SRC = `${import.meta.env.BASE_URL}game.js`
 
 const fetchJson = async (url) => {
   const response = await fetch(url)
