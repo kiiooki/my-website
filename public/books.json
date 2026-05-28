@@ -1,0 +1,99 @@
+﻿{
+  "years": [
+    {
+      "year": "2026",
+      "books": [
+        {
+          "image": "/images/books/book3.jpg",
+          "alt": "book",
+          "name": "《数据通信与计算机网络》",
+          "author": "邢彦辰",
+          "date": "2026-3",
+          "buyUrl": "https://item.jd.com/10186638233478.html?spmTag=YTAyMTkuYjAwMjM1Ni5jMDAwMDQ2ODkuc2VhcmNoX2NvbmZpcm0lMkNhMDI0MC5iMDAyNDkzLmMwMDAwNDAyNy4xJTIzc2t1X2NhcmQ"
+        },
+        {
+          "image": "/images/books/book4.jpg",
+          "alt": "book",
+          "name": "《C++面向对象程序设计》",
+          "author": "Behrouz A Forouzan",
+          "date": "2026-3",
+          "buyUrl": "https://item.jd.com/12909152.html?spmTag=YTAyMTkuYjAwMjM1Ni5jMDAwMDQ2ODkuc2VhcmNoX2NvbmZpcm0lMkNhMDI0MC5iMDAyNDkzLmMwMDAwNDAyNy40JTIzc2t1X2NhcmQ"
+        },
+        {
+          "image": "/images/books/book9.jpg",
+          "alt": "book",
+          "name": "《雅思词汇真经》",
+          "author": "刘洪波",
+          "date": "2026-2",
+          "buyUrl": "https://item.jd.com/10174720090423.html?spmTag=YTAyMTkuYjAwMjM1Ni5jMDAwMDQ2ODkuc2VhcmNoX2NvbmZpcm0lMkNhMDI0MC5iMDAyNDkzLmMwMDAwNDAyNy4xJTIzc2t1X2NhcmQ"
+        },
+        {
+          "image": "/images/books/book10.jpg",
+          "alt": "book",
+          "name": "《9988雅思听力真题答案词汇》",
+          "author": "王勇",
+          "date": "2026-2",
+          "buyUrl": "https://item.jd.com/10140358390545.html?spmTag=YTAyMTkuYjAwMjM1Ni5jMDAwMDQ2ODkuc2VhcmNoX2NvbmZpcm0lMkNhMDI0MC5iMDAyNDkzLmMwMDAwNDAyNy4xJTIzc2t1X2NhcmQ"
+        }
+      ]
+    },
+    {
+      "year": "2025",
+      "books": [
+        {
+          "image": "/images/books/book1.jpg",
+          "alt": "book",
+          "name": "《计算机组成原理》",
+          "author": "Alan Clements",
+          "date": "2025-9",
+          "buyUrl": "https://item.jd.com/12157932.html?spmTag=YTAyNDAuYjAwMjQ5My5jMDAwMDQwMjcuMSUyM3NrdV9jYXJk"
+        },
+        {
+          "image": "/images/books/book2.jpg",
+          "alt": "book",
+          "name": "《算法导论》",
+          "author": "Cormen Thomas H.",
+          "date": "2025-9",
+          "buyUrl": "https://item.jd.com/10208598895923.html?spmTag=YTAyMTkuYjAwMjM1Ni5jMDAwMDQ2ODkuc2VhcmNoX2NvbmZpcm0lMkNhMDI0MC5iMDAyNDkzLmMwMDAwNDAyNy4xNyUyM3NrdV9jYXJk"
+        }
+      ]
+    },
+    {
+      "year": "2023",
+      "books": [
+        {
+          "image": "/images/books/book5.jpg",
+          "alt": "book",
+          "name": "《德米安》",
+          "author": "黑塞",
+          "date": "2023-2",
+          "buyUrl": "https://item.jd.com/10092392700058.html?spmTag=YTAyNDAuYjAwMjQ5My5jMDAwMDQwMjcuMyUyM3NrdV9jYXJk"
+        },
+        {
+          "image": "/images/books/book6.jpg",
+          "alt": "book",
+          "name": "《在轮下》",
+          "author": "黑塞",
+          "date": "2023-4",
+          "buyUrl": "https://item.jd.com/10092392700065.html?spmTag=YTAyNDAuYjAwMjQ5My5jMDAwMDQwMjcuMjYlMjNza3VfY2FyZA"
+        },
+        {
+          "image": "/images/books/book7.jpg",
+          "alt": "book",
+          "name": "《撒哈拉的故事》",
+          "author": "三毛",
+          "date": "2023-9",
+          "buyUrl": "https://item.jd.com/10169485997037.html?spmTag=YTAyMTkuYjAwMjM1Ni5jMDAwMDQ2ODkuc2VhcmNoX2NvbmZpcm0lMkNhMDI0MC5iMDAyNDkzLmMwMDAwNDAyNy4xMCUyM3NrdV9jYXJk"
+        },
+        {
+          "image": "/images/books/book8.jpg",
+          "alt": "book",
+          "name": "《雨季不再来》",
+          "author": "三毛",
+          "date": "2023-9",
+          "buyUrl": "https://item.jd.com/10169563471330.html?spmTag=YTAyMTkuYjAwMjM1Ni5jMDAwMDQ2ODkuc2VhcmNoX2NvbmZpcm0lMkNhMDI0MC5iMDAyNDkzLmMwMDAwNDAyNy4xMCUyM3NrdV9jYXJk&pcdk=6p1YA1z1j6QiRuhyYT2HY82owypFp5wCxV8GcS3OM3do9_YNFH-MOBiDkZxLA5jn.rQ4a.tlbT"
+        }
+      ]
+    }
+  ]
+}

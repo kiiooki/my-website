@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>驾校数据库项目：典型查询示例</title>
+    <style>
+      :root {
+        --bg: #faf9f7;
+        --card: #ffffff;
+        --ink: #1f1f1f;
+        --body: #474747;
+        --muted: #737373;
+        --line: #dfdfdf;
+        --accent: #8f1d21;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: Helvetica, "Microsoft YaHei", sans-serif;
+        line-height: 1.7;
+      }
+
+      .page {
+        width: min(980px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 36px 0 56px;
+      }
+
+      h1, h2, h3 {
+        margin: 0;
+        font-weight: 700;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      p {
+        margin: 0;
+        color: var(--body);
+      }
+
+      .eyebrow {
+        margin-bottom: 10px;
+        color: var(--accent);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 13px;
+      }
+
+      .hero {
+        padding-bottom: 26px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .hero p {
+        margin-top: 16px;
+        max-width: 840px;
+      }
+
+      .toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 22px;
+      }
+
+      .toolbar a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 7px 14px;
+        border: 1.5px solid var(--accent);
+        color: var(--accent);
+        text-decoration: none;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+
+      .toolbar a:hover {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .section {
+        padding-top: 30px;
+      }
+
+      .section + .section {
+        margin-top: 12px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      .grid.two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        padding: 18px;
+      }
+
+      .card h3 {
+        font-size: 19px;
+        color: var(--accent);
+      }
+
+      .card p {
+        margin-top: 10px;
+      }
+
+      .schema {
+        margin-top: 18px;
+        border: 1px solid var(--line);
+        background: #fff;
+        overflow: hidden;
+      }
+
+      .schema img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .query-block {
+        margin-top: 18px;
+        border: 1px solid var(--line);
+        background: #fff;
+        padding: 20px;
+      }
+
+      .query-head {
+        margin-bottom: 14px;
+      }
+
+      .query-head h3 {
+        font-size: 21px;
+        color: var(--ink);
+      }
+
+      .query-head p {
+        margin-top: 8px;
+      }
+
+      pre {
+        margin: 14px 0 0;
+        overflow-x: auto;
+        background: #f4f1ed;
+        border: 1px solid #ece5de;
+        padding: 16px;
+        white-space: pre-wrap;
+        word-break: break-word;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      ul {
+        margin: 12px 0 0;
+        padding-left: 20px;
+        color: var(--body);
+      }
+
+      li + li {
+        margin-top: 8px;
+      }
+
+      .note {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      @media (max-width: 760px) {
+        .grid.two {
+          grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <section class="hero">
+        <p class="eyebrow">Database Showcase</p>
+        <h1>驾校信息管理系统数据库：典型查询示例</h1>
+        <p>
+          这份材料基于课程项目报告整理，重点展示我如何把报名、预约、缴费、学时统计与教练绩效等业务场景
+          抽象成关系模型、约束规则与可复用的 SQL 查询逻辑。相比只展示“建库”，这里更希望体现的是：
+          我理解业务数据、表关系、视图汇总与典型分析查询如何落到数据库层。
+        </p>
+
+        <div class="toolbar">
+          <a href="/images/pictures/project2.png" target="_blank" rel="noopener noreferrer">Schema</a>
+          <a href="/docs/driving-school-sql-showcase.sql" target="_blank" rel="noopener noreferrer">SQL Script</a>
+          <a href="/docs/driving-school-db.docx" target="_blank" rel="noopener noreferrer">Full Report</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>1. 业务与数据结构</h2>
+        <div class="grid two">
+          <div class="card">
+            <h3>核心业务流程</h3>
+            <p>学员报名建档、课程缴费、教练排班、预约训练、学时累计、绩效结算。</p>
+            <ul>
+              <li>学员与课程、缴费记录、训练预约存在一对多关系。</li>
+              <li>教练与车辆、排班、训练预约、绩效记录存在关联。</li>
+              <li>预约、学时、财务记录共同支撑业务状态流转与统计分析。</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>数据库能力点</h3>
+            <ul>
+              <li>关系模式设计与 1NF / 2NF / 3NF 规范化分析。</li>
+              <li>主外键、唯一约束、CHECK 约束等一致性规则设计。</li>
+              <li>视图、存储过程、触发器支持状态联动与业务汇总。</li>
+              <li>面向分析需求组织可复用查询，而不是只停留在建表层。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="schema">
+          <img src="/images/pictures/project2.png" alt="驾校数据库表关系图">
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>2. 典型查询示例</h2>
+
+        <article class="query-block">
+          <div class="query-head">
+            <h3>查询一：预约状态统计</h3>
+            <p>
+              这个查询展示我如何从核心业务表 <code>Training_Session</code> 中提取预约状态分布，
+              用于快速了解当前预约系统中“已预约 / 进行中 / 已完成 / 已取消”等状态的数量。
+            </p>
+          </div>
+          <pre><code>SELECT
+  status,
+  COUNT(*) AS session_count
+FROM Training_Session
+GROUP BY status
+ORDER BY session_count DESC;</code></pre>
+          <ul>
+            <li>能力点：围绕业务状态做分组统计。</li>
+            <li>使用场景：运营看板、预约负载观察、异常状态排查。</li>
+          </ul>
+        </article>
+
+        <article class="query-block">
+          <div class="query-head">
+            <h3>查询二：学员缴费汇总</h3>
+            <p>
+              这个查询把学员、课程与缴费记录关联起来，统计每位学员在不同课程上的缴费次数与累计金额，
+              体现的是多表连接、分组汇总与面向业务分析的组织方式。
+            </p>
+          </div>
+          <pre><code>SELECT
+  s.student_id,
+  s.name,
+  c.course_id,
+  COUNT(p.payment_id) AS payment_count,
+  SUM(p.amount) AS total_paid
+FROM Student s
+JOIN Payment p
+  ON s.student_id = p.student_id
+JOIN Course c
+  ON p.course_id = c.course_id
+GROUP BY s.student_id, s.name, c.course_id
+ORDER BY total_paid DESC;</code></pre>
+          <ul>
+            <li>能力点：多表连接、业务指标汇总、按学员与课程粒度分析。</li>
+            <li>使用场景：收费情况统计、课程销售分析、学员财务核对。</li>
+          </ul>
+        </article>
+
+        <article class="query-block">
+          <div class="query-head">
+            <h3>查询三：学员学时进度统计</h3>
+            <p>
+              这个查询从 <code>Student_Training_Hours</code> 表按学员与科目汇总训练学时，
+              展示如何围绕“训练进度”组织数据，而不是只记录原始流水。
+            </p>
+          </div>
+          <pre><code>SELECT
+  s.student_id,
+  s.name,
+  sth.subject,
+  SUM(sth.hours_completed) AS total_hours
+FROM Student s
+JOIN Student_Training_Hours sth
+  ON s.student_id = sth.student_id
+GROUP BY s.student_id, s.name, sth.subject
+ORDER BY s.student_id, sth.subject;</code></pre>
+          <ul>
+            <li>能力点：面向业务进度的聚合统计。</li>
+            <li>使用场景：学员练车进度跟踪、阶段性训练完成情况检查。</li>
+          </ul>
+        </article>
+
+        <article class="query-block">
+          <div class="query-head">
+            <h3>查询四：教练绩效计算</h3>
+            <p>
+              这个查询围绕“已完成训练次数”估算绩效奖金，是我在数据库项目中把业务规则转成
+              可复用 SQL 逻辑的一类代表性例子。
+            </p>
+          </div>
+          <pre><code>SELECT
+  i.instructor_id,
+  i.name,
+  COUNT(CASE WHEN ts.status = N'已完成' THEN 1 END) AS completed_sessions,
+  COUNT(CASE WHEN ts.status = N'已完成' THEN 1 END) * 50.00 AS estimated_bonus
+FROM Instructor i
+LEFT JOIN Training_Session ts
+  ON i.instructor_id = ts.instructor_id
+GROUP BY i.instructor_id, i.name
+ORDER BY completed_sessions DESC;</code></pre>
+          <ul>
+            <li>能力点：把绩效规则转成数据库查询逻辑。</li>
+            <li>使用场景：月度绩效结算、教练工作量比较、奖金估算。</li>
+          </ul>
+        </article>
+      </section>
+
+      <p class="note">
+        注：这份页面展示的是基于课程报告整理的作品集版本，用于快速说明数据库建模、业务规则实现与 SQL 分析能力；
+        完整实现细节可结合项目报告与 SQL 展示脚本继续查看。
+      </p>
+    </div>
+  </body>
+</html>

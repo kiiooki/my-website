@@ -1,0 +1,342 @@
+{
+  "game": {
+    "closeButton": "✖ 关闭游戏",
+    "topBar": [
+      { "label": "金币", "id": "gold-display", "value": "150" },
+      { "label": "生命", "id": "lives-display", "value": "5" },
+      { "label": "波次", "id": "wave-display", "value": "1" }
+    ],
+    "startMenu": {
+      "title": "守卫基地 - 战前简报",
+      "objective": {
+        "title": "🎯 游戏目标：",
+        "text": "阻止敌人沿着道路进入基地的终点！如果有",
+        "limit": "5",
+        "suffix": "个敌人漏网，防线就会崩溃，游戏失败。"
+      },
+      "basicOpsTitle": "🛠️ 基础操作：",
+      "basicOps": [
+        {
+          "title": "建造：",
+          "text": "点击底部菜单选择防御塔，然后在网格",
+          "emphasis": "空地",
+          "suffix": "上点击即可建造。"
+        },
+        {
+          "title": "升级与出售：",
+          "text": "点击已经建好的塔，会弹出操作面板。你可以花费金币",
+          "emphasis": "升级",
+          "suffix": "它的威力和射程，或者",
+          "secondEmphasis": "半价退款",
+          "ending": "将它拆除，腾出位置！"
+        }
+      ],
+      "towerTitle": "🛡️ 防御塔图鉴：",
+      "towers": [
+        {
+          "icon": "🟦",
+          "name": "基础塔 (50金)",
+          "description": "性能均衡，适合前期开局过度。",
+          "highlight": ""
+        },
+        {
+          "icon": "🟪",
+          "name": "狙击塔 (100金)",
+          "description": "造价高、攻速极慢，但拥有超大范围和恐怖的单体伤害，是打 Boss 和坦克怪的利器。",
+          "highlight": ""
+        },
+        {
+          "icon": "🧊",
+          "name": "冰冻塔 (80金)",
+          "description": "几乎没有伤害，但能让范围内的敌人减速 50%，",
+          "highlight": "强烈建议建在火力最猛的拐角处！"
+        }
+      ],
+      "economy": {
+        "title": "💰 经济提示：",
+        "text": "开局拥有 150金。击杀敌人会获得金币，通关一波会获得 100金 奖励。合理规划你的金币是获胜的关键。"
+      },
+      "tips": "🔧 操作提示：将鼠标移动至塔上方，会出现攻击范围；若不想升级/拆塔，点击空白处即可",
+      "startButton": "接受任务并开始"
+    },
+    "gameOver": {
+      "title": "游戏结束",
+      "surviveLabel": "存活波次:",
+      "restartButton": "重新开始",
+      "backButton": "返回主界面"
+    },
+    "turretPanel": {
+      "title": "防御塔",
+      "levelLabel": "等级:",
+      "upgradeButton": "升级",
+      "sellButton": "出售",
+      "upgradeCost": "50",
+      "sellPrice": "25"
+    },
+    "buildMenu": [
+      { "id": "build-basic", "label": "基础塔 (50g)", "active": true },
+      { "id": "build-sniper", "label": "狙击塔 (100g)", "active": false },
+      { "id": "build-frost", "label": "冰冻塔 (80g)", "active": false }
+    ]
+  },
+  "navbar": {
+    "brand": "Xin Zhang",
+    "items": [
+      { "label": "Home", "href": "#home" },
+      { "label": "Skills", "href": "#skills" },
+      { "label": "Projects", "href": "#projects" },
+      { "label": "Research", "href": "#research" },
+      { "label": "Education", "href": "#education" }
+    ]
+  },
+  "profile": {
+    "avatar": "/images/me.jpg",
+    "avatarAlt": "张欣头像",
+    "contacts": [
+      {
+        "href": "mailto:1142508831@qq.com",
+        "icon": "icon-envelope",
+        "text": "1142508831@qq.com",
+        "target": "_self"
+      },
+      {
+        "href": "https://github.com/kiiooki",
+        "icon": "icon-github",
+        "text": "GitHub",
+        "target": "_blank"
+      }
+    ],
+    "eyebrow": "Portfolio",
+    "name": "张欣 Xin Zhang",
+    "subtitle": "浙江大学本科生    |    开发者 & 研究者",
+    "introTitle": "INTRODUCTION",
+    "introParagraphs": [
+      "我致力于探索城市土地利用与可持续性发展中的复杂挑战。在科研中，我通过机器学习、建模预测与数据挖掘技术寻求解决之道。",
+      "在解决问题的过程中，我开始探究和学习计算机科学本身。目前，我正系统性地构建计算机科学知识体系，构建完整的开发者能力栈。",
+      "近期主要围绕两条主线持续积累能力：一条是面向真实业务场景的后端与数据库开发，另一条是结合机器学习与空间数据分析的科研研究。我希望把“问题抽象、系统设计、数据建模、结果解释”连接起来，做既能落地实现、又能产生分析价值的工作。"
+    ],
+    "ctas": [
+      { "label": "查看项目", "href": "#projects", "variant": "primary" },
+      { "label": "查看科研", "href": "#research", "variant": "secondary" },
+      { "label": "GitHub", "href": "https://github.com/kiiooki", "variant": "secondary", "target": "_blank" }
+    ]
+  },
+  "skills": {
+    "eyebrow": "Capability",
+    "title": "Skills",
+    "groups": [
+      {
+        "title": "后端开发",
+        "items": [
+          "熟悉 Python、Java、SQL，能够围绕真实业务场景完成需求梳理、数据建模与接口设计。",
+          "具备 Flask、RESTful API、MySQL、SQLite、SQL Server 的项目实践经验。",
+          "能够处理表结构设计、状态流转、数据一致性约束与数据库侧业务逻辑实现。"
+        ]
+      },
+      {
+        "title": "数据分析与科研",
+        "items": [
+          "接触并使用过 Random Forest、AHP、LDA、GRF、PDP 等方法。",
+          "能够参与从指标体系设计、数据处理、建模分析到结果解释的研究流程。",
+          "关注空间数据分析、文本情绪识别与解释性建模在城市问题中的应用。"
+        ]
+      },
+      {
+        "title": "数据库系统",
+        "items": [
+          "具备 E-R 建模、规范化分析、多表查询、分组统计、视图、触发器、存储过程与权限管理实践经验。",
+          "掌握 MongoDB 与 Redis 的基础查询、聚合与数据结构操作。",
+          "能够从关系数据库设计延伸到数据库编程与 NoSQL 基础能力的整体应用。"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Selected Work",
+    "title": "Projects",
+    "items": [
+      {
+        "label": "Project 01",
+        "title": "校园二手书交易与知识社区平台",
+        "image": "/images/pictures/project1.png",
+        "metaLabel": "技术栈",
+        "meta": "Vue 3、Vite、Flask、MySQL、SQLite、RESTful API、ECharts",
+        "summary": "面向校园教材流转与学习资料共享场景设计的全栈平台，集二手书交易、知识社区、资料上传与学习任务管理于一体。",
+        "points": [
+          "从 0 到 1 梳理买卖、消息、订单、社区、资料上传等核心业务流程。",
+          "基于 Vue 3 + Flask 实现前后端分离，完成核心页面与 RESTful API 开发。",
+          "设计书籍、订单、消息、笔记、资料等数据模型，支撑交易与内容流转。",
+          "实现 ISBN 自动填单、课程表 JSON 导入、教材推荐等扩展能力。"
+        ],
+        "links": []
+      },
+      {
+        "label": "Project 02",
+        "title": "基于 SQL Server 的驾校信息管理系统数据库设计与实现",
+        "image": "/images/pictures/project2.png",
+        "metaLabel": "技术栈",
+        "meta": "SQL Server、SQL、E-R 建模、触发器、存储过程、视图",
+        "summary": "围绕驾校报名、预约排班、缴费、学时统计与绩效结算等业务，完成数据库建模、实现与测试。",
+        "points": [
+          "完成需求分析、E-R 建模、关系模式设计与规范化分析。",
+          "设计主外键、唯一约束、CHECK 约束等数据一致性规则。",
+          "通过触发器与存储过程实现预约占用/释放、学时更新、缴费记录与绩效计算。",
+          "通过视图支持学员信息、排班、财务流水和绩效统计等业务查询。"
+        ],
+        "resourceLinks": [
+          {
+            "label": "Schema",
+            "url": "/images/pictures/project2.png"
+          },
+          {
+            "label": "SQL",
+            "url": "/docs/driving-school-sql-showcase.sql"
+          },
+          {
+            "label": "Queries",
+            "url": "/docs/driving-school-query-showcase.html"
+          },
+          {
+            "label": "Report",
+            "url": "/docs/driving-school-db.docx"
+          }
+        ],
+        "links": [
+          {
+            "label": "项目报告",
+            "icon": "icon-file-alt",
+            "url": "/docs/driving-school-db.docx"
+          }
+        ]
+      },
+      {
+        "label": "Project 03",
+        "title": "基于 RISC-V 指令集的多周期与流水线 CPU 架构实现",
+        "image": "/images/pictures/project3.png",
+        "metaLabel": "技术栈",
+        "meta": "Verilog、Vivado、RISC-V、流水线设计",
+        "summary": "基于 RISC-V 指令集完成从单周期到多周期、再到五段流水线 CPU 的设计与实现，并进行仿真验证。",
+        "points": [
+          "独立实现 ALU、控制器、寄存器堆、数据通路等核心模块。",
+          "完成五段流水线结构设计及 IF/ID、ID/EX、EX/MEM、MEM/WB 等模块划分。",
+          "设计 Hazard Detection Unit，结合数据前推与 Stall 机制处理流水线冲突。",
+          "在 Vivado 中完成时序仿真与典型程序验证。"
+        ],
+        "links": [
+          {
+            "label": "Lab5 报告",
+            "icon": "icon-file-alt",
+            "url": "/docs/riscv-cpu-lab5.pdf"
+          }
+        ]
+      },
+      {
+        "label": "Project 04",
+        "title": "局域网 Web 服务部署与网络协议分析",
+        "image": "/images/pictures/project4.png",
+        "metaLabel": "技术栈",
+        "meta": "IIS、Wireshark、Packet Tracer、HTTP、TCP/IP",
+        "summary": "结合 Web 服务部署与网络抓包分析，验证局域网环境下的服务访问、协议交互与交换机转发机制。",
+        "points": [
+          "基于 IIS 搭建局域网 Web 服务，完成默认文档、多端口绑定与防火墙配置。",
+          "完成 PC 与移动端局域网访问验证，并排查权限、默认文档与网络隔离问题。",
+          "使用 Wireshark 分析 ARP、ICMP、TCP、DNS、HTTP 等协议报文。",
+          "使用 Packet Tracer 验证交换机 MAC 表学习、泛洪与单播转发机制。"
+        ],
+        "links": [
+          {
+            "label": "WWW 服务实验",
+            "icon": "icon-file-alt",
+            "url": "/docs/iis-web-service.docx"
+          },
+          {
+            "label": "抓包分析实验",
+            "icon": "icon-file-alt",
+            "url": "/docs/network-monitoring.docx"
+          }
+        ]
+      }
+    ]
+  },
+  "research": {
+    "eyebrow": "Research Practice",
+    "title": "Research",
+    "items": [
+      {
+        "label": "Research 01",
+        "title": "工业用地低效评估体系优化：整合专家知识与机器学习的框架",
+        "englishTitle": "Optimizing Evaluation Systems for Industrial Land Inefficiency: A Pattern-Sensitive Framework Integrating Expert Knowledge and Machine Learning",
+        "image": "/images/pictures/research1.png",
+        "status": "第二作者｜已发表",
+        "metaLabel": "研究方法",
+        "meta": "AHP、Random Forest、模式敏感分组、权重优化、空间数据分析",
+        "summary": "围绕工业用地低效识别问题，参与构建融合专家知识与机器学习的评价体系优化框架。",
+        "points": [
+          "参与专家意见收集、指标体系讨论与评价逻辑校核。",
+          "协助完成 AHP 初始权重构建与评价框架梳理。",
+          "参与分析 Random Forest、分组优化与权重校准过程。",
+          "关注不同低效模式下的识别差异及其空间治理含义。"
+        ],
+        "links": [
+          {
+            "label": "DOI",
+            "url": "https://doi.org/10.3390/land15050805"
+          },
+          {
+            "label": "PDF",
+            "url": "/docs/industrial-land-paper.pdf"
+          }
+        ]
+      },
+      {
+        "label": "Research 02",
+        "title": "北京市建成环境与居民情绪关系研究",
+        "englishTitle": "Exploring the Relationship Between Resident Emotions and Built Environment in Beijing Based on a Geographical Weighted Random Forest Approach",
+        "image": "/images/pictures/research2.png",
+        "status": "参与｜论文投稿中",
+        "metaLabel": "研究方法",
+        "meta": "LDA、GRF、PDP、社交媒体文本分析、空间异质性分析",
+        "summary": "基于北京市微博文本与建成环境数据，探索建成环境因素对居民情绪的空间异质性影响机制。",
+        "points": [
+          "参与微博文本情绪识别与空间分析的整体研究框架。",
+          "接触并学习 LDA、GRF、PDP 在文本、空间与解释性分析中的应用。",
+          "关注性别与社交媒体活跃度分组下的情绪响应差异。",
+          "参与从模型结果到城市空间解释的分析过程。"
+        ],
+        "links": []
+      }
+    ]
+  },
+  "education": {
+    "eyebrow": "Academic Background",
+    "title": "Education",
+    "school": "浙江大学",
+    "degree": "城乡规划工学学士｜辅修计算机科学与技术｜2022.09 - 2027.06（预计）",
+    "stats": [
+      "GPA 3.89/4.0",
+      "平均分 88.4/100",
+      "雅思 6.5 / CET-6 529"
+    ],
+    "courseTitle": "核心课程",
+    "courses": [
+      "数据通信与计算机网络",
+      "计算机组成",
+      "Python 程序设计",
+      "分布式文件系统与数据库技术",
+      "数据结构与算法",
+      "面向对象程序设计",
+      "Web 程序设计"
+    ],
+    "honorTitle": "荣誉与经历",
+    "honors": [
+      "连续四年担任班长，连续三年获得校级奖学金。",
+      "曾获浙江大学一等奖学金、校级优秀团员、校级优秀学生等十余项荣誉。"
+    ]
+  },
+  "footer": {
+    "note": "小彩蛋",
+    "gameButton": "玩个塔防小游戏",
+    "topHref": "#home",
+    "topText": "返回顶部 Back to Top ↑"
+  }
+}
