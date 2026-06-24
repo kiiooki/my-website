@@ -168,12 +168,13 @@
           "设计“线上沟通 + 线下对交”的交易流程，支持书籍发布/搜索、聊天协商、订单创建、见面时间地点确认与交易完成。",
           "实现 ISBN/OCR 自动识别填单、课程表导入、智慧书单推荐、信誉评分等扩展功能，提升平台的完整度与演示效果。"
         ],
-        "links": [
+        "resourceLinks": [
           {
             "label": "GitHub",
             "url": "https://github.com/kiiooki/BookLink-Community"
           }
-        ]
+        ],
+        "links": []
       },
       {
         "label": "Project 02",
