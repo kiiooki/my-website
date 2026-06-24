@@ -160,15 +160,20 @@
         "title": "校园二手书交易与知识社区平台",
         "image": "/images/pictures/project1.png",
         "metaLabel": "技术栈",
-        "meta": "Vue 3、Vite、Flask、MySQL、SQLite、RESTful API、ECharts",
+        "meta": "Vue 3、Vite、Flask、SQLAlchemy、SQLite、RESTful API、ECharts",
         "summary": "面向校园教材流转与学习资料共享场景设计的全栈平台，集二手书交易、知识社区、资料上传与学习任务管理于一体。",
         "points": [
-          "从 0 到 1 梳理买卖、消息、订单、社区、资料上传等核心业务流程。",
-          "基于 Vue 3 + Flask 实现前后端分离，完成核心页面与 RESTful API 开发。",
-          "设计书籍、订单、消息、笔记、资料等数据模型，支撑交易与内容流转。",
-          "实现 ISBN 自动填单、课程表 JSON 导入、教材推荐等扩展能力。"
+          "参与从需求梳理、原型设计到前后端实现的完整开发流程，围绕校园教材流转场景设计书籍交易、知识社区与资料共享等核心模块。",
+          "基于 Vue 3 + Flask + RESTful API 实现前后端分离，使用 SQLAlchemy 设计用户、书籍、订单、消息、笔记与资料等核心数据模型。",
+          "设计“线上沟通 + 线下对交”的交易流程，支持书籍发布/搜索、聊天协商、订单创建、见面时间地点确认与交易完成。",
+          "实现 ISBN/OCR 自动识别填单、课程表导入、智慧书单推荐、信誉评分等扩展功能，提升平台的完整度与演示效果。"
         ],
-        "links": []
+        "links": [
+          {
+            "label": "GitHub",
+            "href": "https://github.com/kiiooki/BookLink-Community"
+          }
+        ]
       },
       {
         "label": "Project 02",
